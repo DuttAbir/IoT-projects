@@ -1,10 +1,9 @@
 #include <Adafruit_Sensor.h>
 #include <DHT.h>
 #include <Wire.h>
-
 #include <ESP8266WiFi.h>
-
 #include <ThingSpeak.h>
+#include"C:\Users\dutta\Documents\IoT_projects\Weather Monitoring_DHT22\info.h"
 
 #define DHTPIN 2
 #define DHTTYPE DHT22
@@ -15,15 +14,12 @@ int ldrValue = 0;
 
 DHT dht(DHTPIN, DHTTYPE);
 
-const char *ssid = "LOVE U 3000";
-const char *password = "AVATARRR";
-
+const char *SSID = ssid();
+const char *password = Pass();
 
 WiFiClient client;
-
-
-long MyChannelNumber = 3216174;
-const char myWriteAPIKey[] = "TVKN337NV4M284CZ";
+long MyChannelNumber = channelID();
+const char* myWriteAPIKey = writeAPI();
 
 float t = 0.0;
 float h = 0.0;
